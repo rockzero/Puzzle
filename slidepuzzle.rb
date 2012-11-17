@@ -158,8 +158,8 @@ Shoes.app do
        image = @images.find { |i|
          i.left == 200 && i.top == 0
        }
-       image.move(0, 300)
-       @image16.move(0, 200)
+       image.move(200, 100)
+       @image16.move(200, 0)
        spacex,spacey = 200,0
        end
    end
@@ -178,9 +178,9 @@ Shoes.app do
        image = @images.find { |i|
          i.left == 300 && i.top == 0
        }
-       image.move(100, 300)
-       @image16.move(0, 300)
-       spacex,spacey = 0,300
+       image.move(300, 100)
+       @image16.move(300, 0)
+       spacex,spacey = 300,0
        end
    end
 
@@ -248,21 +248,71 @@ Shoes.app do
      end
 
    end
-=begin
 
    if (100 ... 200).cover?(t) && (200 ... 300).cover?(l) #7
-     if となりにimage16がある
-       交換する
-       spacex,spacey = x3,y2
+     if (spacex == 300 && spacey == 100)
+                  # 右隣
+       image = @images.find { |i|
+         i.left == 200 && i.top == 100
+       }
+       image.move(300, 100)
+       @image16.move(200, 100)
+       spacex,spacey = 200,100
+     elsif (spacex == 100 && spacey == 100)
+                  # 左隣
+       image = @images.find { |i|
+         i.left == 200 && i.top == 100
+       }
+       image.move(100, 100)
+       @image16.move(200, 100)
+       spacex,spacey = 200,100
+     elsif (spacex == 200 && spacey == 0)
+                  # 上隣
+       image = @images.find { |i|
+         i.left == 200 && i.top == 100
+       }
+       image.move(200, 0)
+       @image16.move(200, 100)
+       spacex,spacey = 200,100
+     elsif (spacex == 200 && spacey == 200)
+                  # 下隣
+       image = @images.find { |i|
+         i.left == 200 && i.top == 100
+       }
+       image.move(200, 200)
+       @image16.move(200, 100)
+       spacex,spacey = 200,100
      end
    end
 
    if (100 ... 200).cover?(t) && (300 ... 400).cover?(l) #8
-     if となりにimage16がある
-       交換する
-       spacex,spacey = x4,y2
+     if (spacex == 200 && spacey == 100)
+                  # 左隣
+       image = @images.find { |i|
+         i.left == 300 && i.top == 100
+       }
+       image.move(200, 100)
+       @image16.move(300, 100)
+       spacex,spacey = 300,100
+     elsif (spacex == 300 && spacey == 0)
+                  # 上隣
+       image = @images.find { |i|
+         i.left == 300 && i.top == 100
+       }
+       image.move(300, 0)
+       @image16.move(300, 100)
+       spacex,spacey = 300,100
+     elsif (spacex == 300 && spacey == 200)
+                  # 下隣
+       image = @images.find { |i|
+         i.left == 300 && i.top == 100
+       }
+       image.move(300, 200)
+       @image16.move(300, 100)
+       spacex,spacey = 300,100
      end
    end
+=begin
 
    if (200 ... 300).cover?(t) && (0 ... 100).cover?(l) #9
      if となりにimage16がある
